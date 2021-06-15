@@ -9,7 +9,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
-import android.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
+
 
 import com.google.android.material.navigation.NavigationView;
 
