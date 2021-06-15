@@ -34,33 +34,30 @@ public class NavDrawerActivity extends AppCompatActivity {
         toggle.syncState();
 
         NavigationView navigationView = findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                drawerLayout.closeDrawer(GravityCompat.START);
-                if (item.getItemId() == R.id.option_one){
-                    getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.nested_container, new FragmentOne())
-                            .commit();
-                    return  true;
-                }
-                if (item.getItemId() == R.id.option_two) {
-                    getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.nested_container, new FragmentTwo())
-                            .commit();
-                    return true;
-                }
-                if (item.getItemId() == R.id.option_Three) {
-                    getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.nested_container, new FragmentThree())
-                            .commit();
-                    return true;
-                }
-                return false;
+        navigationView.setNavigationItemSelectedListener(item -> {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            if (item.getItemId() == R.id.option_one){
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, new FragmentOne())
+                        .commit();
+                return  true;
             }
+            if (item.getItemId() == R.id.option_two) {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, new FragmentTwo())
+                        .commit();
+                return true;
+            }
+            if (item.getItemId() == R.id.option_Three) {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, new FragmentThree())
+                        .commit();
+                return true;
+            }
+            return false;
         });
     }
 }
